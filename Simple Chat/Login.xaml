@@ -1,0 +1,35 @@
+﻿<Window x:Class="Simple_Chat.Login"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Simple_Chat"
+        mc:Ignorable="d"
+        Height="425" Width="400">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="130"></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <Rectangle Fill="#36393F" Grid.RowSpan="5"></Rectangle>
+        <Label Width="281" Grid.Row="0" Foreground="#E2E2E3"  Content="Добро пожаловать!" FontFamily="Segoe UI" HorizontalAlignment="Center" FontSize="30" Margin="60,20,52.6,10.2"/>
+        <Label Width="247" Grid.RowSpan="2" Foreground="#5D6168"  Content="Мы рады видеть тебя снова!" FontFamily="Segoe UI" HorizontalAlignment="Center" FontSize="18" Margin="75,69,71.6,51.4"/>
+
+        <Label Width="125" HorizontalAlignment="Left" Content="ИМЯ ПОЛЬЗОВАТЕЛЯ" Foreground="#AFB1B5" FontSize="10" Margin="39,124,0,47" Grid.RowSpan="2" FontWeight="Bold"/>
+        <Rectangle Fill="#E8F0FE" Grid.Row="1" Width="316" Height="35" RadiusX="5" RadiusY="5"></Rectangle>
+
+        <Label Width="125" HorizontalAlignment="Left" Content="ПАРОЛЬ" Foreground="#AFB1B5" FontSize="10" FontWeight="Bold" Margin="39,60.4,0,6.4" Grid.Row="1" Grid.RowSpan="2"/>
+        <Rectangle Fill="#E8F0FE" Grid.Row="2" Width="316" Height="35" RadiusX="5" RadiusY="5"></Rectangle>
+
+        <Rectangle Fill="#7289DA" Grid.Row="3" Width="316" Height="35" RadiusX="5" RadiusY="5"></Rectangle>
+        <Label Foreground="#F8F9FD" Grid.Row="3" Content="Вход" HorizontalAlignment="Center" Margin="20" FontWeight="Bold"></Label>
+
+        <Rectangle Fill="#7289DA" Grid.Row="4" Width="316" Height="35" RadiusX="5" RadiusY="5"></Rectangle>
+        <Label Foreground="#F8F9FD" Grid.Row="4" Content="Регистрация" HorizontalAlignment="Center" Margin="20" FontWeight="Bold"></Label>
+
+    </Grid>
+</Window>

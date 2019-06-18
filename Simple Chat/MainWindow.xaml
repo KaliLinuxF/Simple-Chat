@@ -5,8 +5,40 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Simple_Chat"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+         Height="500" Width="600">
     <Grid>
-        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="86"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="83"></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <Rectangle Grid.Column="0" Grid.RowSpan="8" Fill="#202225"/>
+
+        <Rectangle Fill="White" Width="54" Margin="16,15,16.4,13.2" RadiusX="15" RadiusY="15" />
+
+        <Ellipse Fill="White" Grid.Column="0" Grid.Row="1" Margin="20,5,20,5" />
+        <Ellipse Fill="White" Grid.Column="0" Grid.Row="2" Margin="20,5,20,5" />
+        <Ellipse Fill="White" Grid.Column="0" Grid.Row="3" Margin="20,5,20,5" />
+        <Ellipse Fill="White" Grid.Column="0" Grid.Row="4" Margin="20,5,20,5" />
+        <Ellipse Fill="White" Grid.Column="0" Grid.Row="5" Margin="20,5,20,5" />
+        <Ellipse Fill="White" Grid.Column="0" Grid.Row="6" Margin="20,5,20,5" />
+        <Ellipse Fill="White" Grid.Column="0" Grid.Row="7" Margin="20,5,20,5" />
+
+        <Rectangle Fill="#36393F" Grid.Column="1" Grid.Row="0" Grid.RowSpan="8"/>
+        <Line X1="0" Y1="34" X2="510" Y2="34" Stroke="#202226" Grid.Column="1" Grid.Row="0" />
+
+        <Rectangle Fill="#484C52" Grid.Column="1" Grid.Row="8" Margin="20,0,20,10" RadiusX="10" RadiusY="10"/>
+        <Label Grid.Column="1" Grid.Row="7" Content="Send massage to @" Foreground="#707070" FontWeight="Bold" Margin="29.6,9.8,355.6,10.4"></Label>
+
     </Grid>
 </Window>
