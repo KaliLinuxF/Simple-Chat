@@ -9,6 +9,7 @@
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="86"></ColumnDefinition>
+            <ColumnDefinition Width="70"></ColumnDefinition>
             <ColumnDefinition Width="*"></ColumnDefinition>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
@@ -22,23 +23,67 @@
             <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
 
-        <Rectangle Grid.Column="0" Grid.RowSpan="8" Fill="#202225"/>
+        <Rectangle Grid.Column="0" Fill="#202225"/>
 
-        <Rectangle Fill="White" Width="54" Margin="16,15,16.4,13.2" RadiusX="15" RadiusY="15" />
+        <ListBox x:Name="lbUsers" BorderThickness="0" Background="#202225" Grid.Column="0" Grid.Row="0" Grid.RowSpan="8">
+        </ListBox>
+        <Line X1="0" Y1="34" X2="510" Y2="34" Stroke="#202226" Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="0" />
 
-        <Ellipse Fill="White" Grid.Column="0" Grid.Row="1" Margin="20,5,20,5" />
-        <Ellipse Fill="White" Grid.Column="0" Grid.Row="2" Margin="20,5,20,5" />
-        <Ellipse Fill="White" Grid.Column="0" Grid.Row="3" Margin="20,5,20,5" />
-        <Ellipse Fill="White" Grid.Column="0" Grid.Row="4" Margin="20,5,20,5" />
-        <Ellipse Fill="White" Grid.Column="0" Grid.Row="5" Margin="20,5,20,5" />
-        <Ellipse Fill="White" Grid.Column="0" Grid.Row="6" Margin="20,5,20,5" />
-        <Ellipse Fill="White" Grid.Column="0" Grid.Row="7" Margin="20,5,20,5" />
+        <ListBox x:Name="lbchatUsers" BorderThickness="0" Grid.Column="1" Grid.RowSpan="7" Grid.Row="0" Background="#36393F"></ListBox>
+        <ListBox x:Name="lbchatText" BorderThickness="0" Grid.Column="2" Grid.RowSpan="7" Grid.Row="0" Background="#36393F"></ListBox>
 
-        <Rectangle Fill="#36393F" Grid.Column="1" Grid.Row="0" Grid.RowSpan="8"/>
-        <Line X1="0" Y1="34" X2="510" Y2="34" Stroke="#202226" Grid.Column="1" Grid.Row="0" />
+        <Rectangle Fill="#36393F" Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="8"/>
 
-        <Rectangle Fill="#484C52" Grid.Column="1" Grid.Row="8" Margin="20,0,20,10" RadiusX="10" RadiusY="10"/>
-        <Label Grid.Column="1" Grid.Row="7" Content="Send massage to @" Foreground="#707070" FontWeight="Bold" Margin="29.6,9.8,355.6,10.4"></Label>
+        <TextBox KeyDown="TbMessage_KeyDown" x:Name="tbSendMsg" Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="8" Margin="20,0,20,10" Background="#484C52" Padding="12.5" Foreground="#707070" FontWeight="Bold" Style="{DynamicResource TextBoxStyleRadius}">
+            <TextBox.Resources>
+                <SolidColorBrush x:Key="TextBox.Static.Border" Color="#FFABAdB3"/>
+                <SolidColorBrush x:Key="TextBox.MouseOver.Border" Color="#FF7EB4EA"/>
+                <SolidColorBrush x:Key="TextBox.Focus.Border" Color="#FF569DE5"/>
+                <Style x:Key="TextBoxStyleRadius" TargetType="{x:Type TextBox}">
+                    <Setter Property="Background" Value="{DynamicResource {x:Static SystemColors.WindowBrushKey}}"/>
+                    <Setter Property="BorderBrush" Value="{StaticResource TextBox.Static.Border}"/>
+                    <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
+                    <Setter Property="BorderThickness" Value="1"/>
+                    <Setter Property="KeyboardNavigation.TabNavigation" Value="None"/>
+                    <Setter Property="HorizontalContentAlignment" Value="Left"/>
+                    <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+                    <Setter Property="AllowDrop" Value="true"/>
+                    <Setter Property="ScrollViewer.PanningMode" Value="VerticalFirst"/>
+                    <Setter Property="Stylus.IsFlicksEnabled" Value="False"/>
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="{x:Type TextBox}">
+                                <Border CornerRadius="10" x:Name="border" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" SnapsToDevicePixels="True">
+                                    <ScrollViewer x:Name="PART_ContentHost" Focusable="false" HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Hidden"/>
+                                </Border>
+                                <ControlTemplate.Triggers>
+                                    <Trigger Property="IsEnabled" Value="false">
+                                        <Setter Property="Opacity" TargetName="border" Value="0.56"/>
+                                    </Trigger>
+                                    <Trigger Property="IsMouseOver" Value="true">
+                                        <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource TextBox.MouseOver.Border}"/>
+                                    </Trigger>
+                                    <Trigger Property="IsKeyboardFocused" Value="true">
+                                        <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource TextBox.Focus.Border}"/>
+                                    </Trigger>
+                                </ControlTemplate.Triggers>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                    <Style.Triggers>
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="IsInactiveSelectionHighlightEnabled" Value="true"/>
+                                <Condition Property="IsSelectionActive" Value="false"/>
+                            </MultiTrigger.Conditions>
+                            <Setter Property="SelectionBrush" Value="{DynamicResource {x:Static SystemColors.InactiveSelectionHighlightBrushKey}}"/>
+                        </MultiTrigger>
+                    </Style.Triggers>
+                </Style>
+            </TextBox.Resources> Send message to @
+        </TextBox>
+        
+        
 
     </Grid>
 </Window>
